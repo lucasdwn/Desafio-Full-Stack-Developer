@@ -4,11 +4,12 @@ import { ProdutoModel } from "../database/models/produtosmodel";
 class ProdutoController {
   
   async create(req:Request, res:Response) {
-    const { nome, preco, idEstoque} = req.body;
+    const { nome, preco, quantidade, estoqueId} = req.body;
     const produtos = await ProdutoModel.create({
       nome,
       preco,
-      idEstoque,
+      quantidade,
+      estoqueId,
     });
     return res.status(201).json(produtos);
   }

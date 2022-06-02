@@ -1,11 +1,16 @@
-import react, { useState, useEffect } from 'react';
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable react/jsx-pascal-case */
+import { useState, useEffect } from 'react';
+import { Button, Card } from 'react-bootstrap';
 import { useNavigate, useParams } from 'react-router-dom';
-import api from '../services/api';
+import Nav_Bar from '../../components/navbar';
+import api from '../../services/api';
 
 interface IProduto {
     id: number;
     nome: string;
     preco: number;
+    quantidade: number;
     idEstoque: number;
 }
 
@@ -17,7 +22,6 @@ const VisualizarProduto = () => {
 
     useEffect(() => {
         ViewProduto()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [id])
 
     function back(){
@@ -30,15 +34,37 @@ const VisualizarProduto = () => {
     }
     return (
         <>
-            <h1>Visualizar "{produto?.nome}"</h1>
-            <button onClick={back}>Voltar</button>
-            <div>
-                <h1>ID: {produto?.id}</h1>
-                <h1>NOME: {produto?.nome}</h1>
-                <h1>PREÇO: {produto?.preco}</h1>
-                <h1>IDESTOQUE: {produto?.idEstoque}</h1>
-            </div>
-
+        <section>
+            <header>
+                <Nav_Bar/>
+            </header>
+            <main>
+                <div className="mainheader">
+                    <h1>Visualizar Produto:"{produto?.nome}"</h1>
+                    <Button variant="light" onClick={back}>Voltar</Button>{' '}
+                </div>
+                <div className="card">
+                    {['Dark',].map((variant) => (
+                        <Card
+                        border='secundary'
+                        bg={variant.toLowerCase()}
+                        key={variant}
+                        text={variant.toLowerCase() === 'light' ? 'dark' : 'white'}
+                        style={{ width: '18rem' }}
+                        className="mb-2"
+                        >
+                        <Card.Header>ID: {produto?.id}</Card.Header>
+                        <Card.Body>
+                            <Card.Title>NOME: {produto?.nome}</Card.Title>
+                            <Card.Text>QUANTIDADE: {produto?.quantidade} Itens</Card.Text>
+                            <Card.Text>PREÇO: {produto?.preco}</Card.Text>
+                            <Card.Text>IDESTOQUE: {produto?.idEstoque}</Card.Text>
+                        </Card.Body>
+                        </Card>
+                    ))}
+                </div>
+            </main>
+        </section>
         </>
     )
 }

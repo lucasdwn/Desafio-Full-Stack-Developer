@@ -1,6 +1,11 @@
+/* eslint-disable react/jsx-pascal-case */
+/* eslint-disable react/jsx-no-undef */
 import React, { useState, useEffect } from 'react';
+import './styles.css';
+import { Badge, Button, Table } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
-import api from '../services/api';
+import Nav_Bar from '../../components/navbar';
+import api from '../../services/api';
 
 interface IEstoques{
     id: number;
@@ -39,31 +44,43 @@ const Estoques = () => {
 
     return (
         <>
-        <h1>Estoques</h1>
-        <a href='/cadastrar_estoque'><button>Novo estoque</button></a>
-            <table>
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>NOME</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {
-                        estoques.map(estoques => (
-                            <tr key={estoques.id}>
-                                <td>{estoques.id}</td>
-                                <td>{estoques.nome}</td>
-                                <td>
-                                    <button onClick={() => editEstoque(estoques.id)}>Editar</button>{' '}
-                                    <button onClick={() => viewEstoque(estoques.id)}>Visualizar</button>{' '}
-                                    <button onClick={() => deleteEstoque(estoques.id)}>Remover</button>{' '}
-                                </td>
-                            </tr>
-                        ))
-                    }
-                </tbody>
-            </table>
+            <section>
+                <header>
+                    <Nav_Bar/>
+                </header>
+                <main>
+                    <div className="mainheader">
+                        <h1>Estoques</h1>
+                        <a href='/cadastrar_estoque'><Button variant="light">Novo Estoque</Button>{' '}</a>
+                    </div>
+                    <div className="table">
+                        <Table striped bordered hover variant="dark" responsive="sm">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>NOME</th>
+                                        <th>AÇÕES</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {
+                                        estoques && estoques.map(estoques => (
+                                            <tr key={estoques.id}>
+                                                <td>{estoques.id}</td>
+                                                <td>{estoques.nome}</td>
+                                                <td>
+                                                    <Button className='button' variant="primary" onClick={() => editEstoque(estoques.id)}>Editar</Button>
+                                                    <Button className='button' variant="info" onClick={() => viewEstoque(estoques.id)}>Visualizar</Button>
+                                                    <Button className='button' variant="danger" onClick={() => deleteEstoque(estoques.id)}>Remover</Button>
+                                                </td>
+                                            </tr>
+                                        ))
+                                    }
+                                </tbody>
+                        </Table>
+                    </div>
+                </main>
+            </section>
         </>
     )
 }

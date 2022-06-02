@@ -1,7 +1,10 @@
+/* eslint-disable react/jsx-pascal-case */
 import React, { ChangeEvent, useEffect, useState } from 'react';
+import { Button } from 'react-bootstrap';
 import { useNavigate, useParams } from 'react-router-dom';
 import * as yup from 'yup';
-import api from '../services/api';
+import Nav_Bar from '../../components/navbar';
+import api from '../../services/api';
 
 interface IForm {
     nome: string;
@@ -52,23 +55,32 @@ const EditarEstoque= () => {
     
     return (
         <>
-            <h1>Editar estoque</h1>
-            <button onClick={back}>Voltar</button>
-            <div className="section-form">
-                <form className='form' onSubmit={onSubmit}>
-                    <div className="field">
-                        <label htmlFor="nome">Estoque:</label>
-                        <input 
-                            type="text" 
-                            id="estoque" 
-                            name="nome" 
-                            value={formState.nome}
-                            onChange={(e: ChangeEvent<HTMLInputElement>) => updateForm(e)}
-                        />
-                    </div>
-                    <input type="submit" value="Salvar" />
-                </form>
-            </div>
+        <section>
+            <header>
+                <Nav_Bar/>
+            </header>
+            <main>
+                <div className="mainheadeer">
+                    <h1>Editar estoque</h1>
+                    <Button variant="light" onClick={back}>Voltar</Button>{' '}
+                </div>
+                <div className="section-form">
+                    <form className='form' onSubmit={onSubmit}>
+                        <div className="field">
+                            <label htmlFor="nome">Estoque:</label>
+                            <input 
+                                type="text" 
+                                id="estoque" 
+                                name="nome" 
+                                value={formState.nome}
+                                onChange={(e: ChangeEvent<HTMLInputElement>) => updateForm(e)}
+                            />
+                        </div>
+                        <Button  variant="primary" type="submit">Salvar</Button>{' '}
+                    </form>
+                </div>
+            </main>
+        </section>
         </>
     );
 }

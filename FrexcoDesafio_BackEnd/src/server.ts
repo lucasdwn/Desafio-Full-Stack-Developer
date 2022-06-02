@@ -1,4 +1,4 @@
-import express, { json, query } from "express";
+import express, { json } from "express";
 import { db } from "./database/db";
 import { router } from "./routes";
 import cors from 'cors';

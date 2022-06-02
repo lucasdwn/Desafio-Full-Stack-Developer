@@ -17,14 +17,16 @@ export const ProdutoModel = db.define('produtos', {
   preco:{
     type: DataTypes.FLOAT,
     allowNull: false,
+  },
+  quantidade:{
+    type: DataTypes.INTEGER,
+    allowNull: false,
   }
 });
 
 ProdutoModel.belongsTo(EstoqueModel, {
-  constraints: true,
-  foreignKey: 'idEstoque'
+  foreignKeyConstraint: true
 })
 
 EstoqueModel.hasMany(ProdutoModel, {
-  foreignKey: 'idEstoque'
 })

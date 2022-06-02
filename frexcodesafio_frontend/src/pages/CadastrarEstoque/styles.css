@@ -1,0 +1,53 @@
+section{
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    background-color: #202024;
+    overflow-x: hidden;
+    color: #ffff;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mainheadeer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #ffff;
+}
+
+.btn-light:hover{
+    background-color: #202024;
+    color: #f8f9fa;
+    transition: 0.35s ease-in-out;
+}
+
+button{
+    margin-top: 15px;
+}
+
+.form{
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+}
+
+.field{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+input{
+    width: 350px;
+    background-color: transparent;
+    border: none;
+    color: #f8f9fa;
+    border-bottom: 1px solid #f8f9fa;
+    outline: none;
+}

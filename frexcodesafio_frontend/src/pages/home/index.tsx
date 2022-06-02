@@ -1,8 +1,20 @@
-import react from 'react';
+/* eslint-disable react/jsx-pascal-case */
+import Nav_Bar from "../../components/navbar";
+
 
 function Home() {
     return (
-        <h1> Home </h1>
+
+       <>
+       <section>
+           <header>
+                <Nav_Bar/>
+           </header>
+           <main>
+               
+           </main>
+       </section>
+       </>
     );
 }
 

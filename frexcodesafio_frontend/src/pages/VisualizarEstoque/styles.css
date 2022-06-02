@@ -1,0 +1,40 @@
+section{
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    background-color: #202024;
+    overflow-x: hidden;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mainheader{
+    margin-top: 25px;
+    width: 90%;
+    justify-content: start;
+    align-items: center;
+    gap: 50px;
+    margin-left: 120px;
+    color: #ffff;
+}
+
+.table{
+    width: 90%;
+    margin-top: 25px;
+}
+
+Table{
+ margin: auto;
+}
+
+.card{ 
+    margin-top: 25px;
+    width: 81%;
+    border: none;
+    background-color: #202024;
+}

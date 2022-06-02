@@ -1,0 +1,82 @@
+section{
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    background-color: #202024;
+    overflow-x: hidden;
+    color: #ffff;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mainheadeer{
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #ffff;
+}
+
+.btn-light:hover{
+    background-color: #202024;
+    color: #f8f9fa;
+    transition: 0.35s ease-in-out;
+}
+
+button{
+    margin-top: 15px;
+}
+
+.form{
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+}
+
+.field{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+input{
+    width: 350px;
+    background-color: transparent;
+    border: none;
+    color: #f8f9fa;
+    border-bottom: 1px solid #f8f9fa;
+    outline: none;
+}
+
+select{
+    color: #f8f9fa;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    border: #7fb1fc;
+}
+
+select:focus{
+    color: #f8f9fa;
+}
+
+.p{
+    margin: auto;
+    color: #7fb1fc;
+    font-size: 15px;
+}
+
+option {
+    font-weight: normal;
+    display: block;
+    white-space: nowrap;
+    min-height: 1.2em;
+    padding: 0px 2px 1px;
+    color: #f8f9fa;
+    background: #202024;
+}

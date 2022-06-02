@@ -1,5 +1,6 @@
 import { DataTypes } from "sequelize";
 import { db } from "../db";
+import { ProdutoModel } from "./produtosmodel";
 
 export const EstoqueModel = db.define('estoque', {
   id:{
@@ -14,3 +15,4 @@ export const EstoqueModel = db.define('estoque', {
     unique: true,
   }
 });
+
