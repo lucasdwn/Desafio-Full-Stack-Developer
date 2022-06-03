@@ -41,6 +41,22 @@ const VisualizarEstoque = () => {
         
     }
 
+    function editProduto(id: number) {
+        navigate(`/editar_produto/${id}`)
+    }
+
+    function viewProduto(id: number) {
+        navigate(`/produtos/${id}`)
+    }
+
+    async function deleteProdutos(id: number) {
+        await api.delete(`/produtos/${id}`).then(() => {
+            alert('Produto deletado')
+             ViewEstoque()
+        })
+    }
+
+
     return (
         <>
         <section>
@@ -77,6 +93,7 @@ const VisualizarEstoque = () => {
                                 <th>NOME</th>
                                 <th>PREÇO</th>
                                 <th>QUANTIDADE</th>
+                                <th>AÇÕES</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -87,6 +104,11 @@ const VisualizarEstoque = () => {
                                         <td>{produto.nome}</td>
                                         <td>R$ {produto.preco}</td>
                                         <td>{produto.quantidade} itens</td>
+                                        <td>
+                                            <Button className='button' variant="light" onClick={() => editProduto(produto.id)}>Editar</Button>
+                                            <Button className='button' variant="info" onClick={() => viewProduto(produto.id)}>Visualizar</Button>
+                                            <Button className='button' variant="danger" onClick={() => deleteProdutos(produto.id)}>Remover</Button>
+                                        </td>
                                     </tr>
                                 ))
                             }

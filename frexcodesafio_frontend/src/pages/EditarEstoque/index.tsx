@@ -2,7 +2,6 @@
 import React, { ChangeEvent, useEffect, useState } from 'react';
 import { Button } from 'react-bootstrap';
 import { useNavigate, useParams } from 'react-router-dom';
-import * as yup from 'yup';
 import Nav_Bar from '../../components/navbar';
 import api from '../../services/api';
 

@@ -1,8 +1,8 @@
 /* eslint-disable react/jsx-pascal-case */
 /* eslint-disable react/jsx-no-undef */
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import './styles.css';
-import { Badge, Button, Table } from 'react-bootstrap';
+import { Button, Table } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import Nav_Bar from '../../components/navbar';
 import api from '../../services/api';

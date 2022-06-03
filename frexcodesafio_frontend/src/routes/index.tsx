@@ -2,7 +2,6 @@ import {
     BrowserRouter as Router,
     Route,
     Routes,
-    Navigate,
 } from 'react-router-dom'
 import CadastrarEstoque from '../pages/CadastrarEstoque';
 import CadastrarProduto from '../pages/CadastrarProduto';

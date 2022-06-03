@@ -59,6 +59,7 @@ select{
     outline: none;
     border: none;
     border: #7fb1fc;
+    border-bottom: 1px solid #f8f9fa;
 }
 
 select:focus{
@@ -66,7 +67,7 @@ select:focus{
 }
 
 .p{
-    margin: auto;
+    margin: 5px auto;
     color: #7fb1fc;
     font-size: 15px;
 }

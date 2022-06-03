@@ -11,7 +11,6 @@ interface IProduto {
     nome: string;
     preco: number;
     quantidade: number;
-    idEstoque: number;
 }
 
 const VisualizarProduto = () => {
@@ -58,7 +57,6 @@ const VisualizarProduto = () => {
                             <Card.Title>NOME: {produto?.nome}</Card.Title>
                             <Card.Text>QUANTIDADE: {produto?.quantidade} Itens</Card.Text>
                             <Card.Text>PREÇO: {produto?.preco}</Card.Text>
-                            <Card.Text>IDESTOQUE: {produto?.idEstoque}</Card.Text>
                         </Card.Body>
                         </Card>
                     ))}

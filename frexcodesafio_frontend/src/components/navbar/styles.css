@@ -1,0 +1,5 @@
+.navbar-dark .navbar-brand{
+    display: flex;
+    color: #619df7;
+    align-items: center;
+}

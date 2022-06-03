@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-pascal-case */
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import "./styles.css";
 import { Button, Table } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
@@ -14,11 +14,19 @@ interface IProdutos{
     idEstoque: number;
 }
 
+interface IQuantia{
+    quantidade: number;
+}
+
 const Produtos = () => {
 
     const navigate = useNavigate()
 
     const [produtos, setProdutos] = useState<IProdutos[]>([])
+
+    const [quantia, setQuantia] = useState<IQuantia>({
+        quantidade: 0
+    })
 
     useEffect(() => {
         loadProdutos()
@@ -43,6 +51,28 @@ const Produtos = () => {
             loadProdutos()
         })
     }
+
+    async function vendaProduto(id: number){
+        const response = await api.get(`/produtos/${id}`)
+        setQuantia({
+            quantidade: response.data.quantidade
+        })
+
+        if(quantia.quantidade !== 0){
+            const sub = quantia.quantidade - 1
+            setQuantia({
+                quantidade: sub
+            })
+            if(quantia.quantidade !== sub){
+                await api.put(`/produtos/${id}`, quantia).then(() =>{
+                    alert('Vendido')
+                })
+                loadProdutos()
+            }
+        }
+    }
+
+    
     return (
         <>
         <section>
@@ -77,6 +107,7 @@ const Produtos = () => {
                                             <td>
                                                 <Button className='button' variant="light" onClick={() => editProduto(produtos.id)}>Editar</Button>
                                                 <Button className='button' variant="info" onClick={() => viewProduto(produtos.id)}>Visualizar</Button>
+                                                <Button className='button' variant="success" onClick={() => vendaProduto(produtos.id)}>Vender</Button>
                                                 <Button className='button' variant="danger" onClick={() => deleteProdutos(produtos.id)}>Remover</Button>
                                             </td>
                                         </tr>
