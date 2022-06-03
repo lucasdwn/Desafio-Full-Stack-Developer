@@ -11,6 +11,7 @@
 
 ## Informações sobre o projeto
 
+### * Video de demonstração: https://youtu.be/-tT0WixFo9c
 ### * Banco de dados escolhido foi "Postgresql"
 ### * Foi utilizado Typescript no back e front
 <br>
